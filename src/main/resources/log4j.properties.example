@@ -1,0 +1,8 @@
+log4j.appender.A3=
+log4j.appender.A3.Target=
+log4j.appender.A3.layout=
+log4j.appender.A3.layout.ConversionPattern=
+
+log4j.rootLogger=
+log4j.logger.org.apache.cxf=
+log4j.logger.com.mchange.v2.resourcepool=

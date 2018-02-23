@@ -25,4 +25,4 @@ hs_err_pid*
 .idea/
 
 #properties
-/src/main/resources/application.properties
+/src/main/resources/*.properties
