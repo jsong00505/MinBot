@@ -31,18 +31,9 @@ public class MinBot extends TelegramLongPollingBot {
   public void onUpdateReceived(Update update) {
 // We check if the update has a message and the message has text
     if (update.hasMessage() && update.getMessage().hasText()) {
-      // text to show off my skill to my friends
-      String text = update.getMessage().getText();
-      System.out.println("message: " + text);
-      if ("대건이 형님".equals(text)) {
-        text = "사랑합니다. 형님.";
-      } else if ("은교 형수님".equals(text)) {
-        text = "형수님을 사랑하면 큰일나죠. 존경합니다 형수님 ^0^!";
-      }
-
       SendMessage message = new SendMessage() // Create a SendMessage object with mandatory fields
               .setChatId(update.getMessage().getChatId())
-              .setText(text);
+              .setText(update.getMessage().getText());
 
       try {
         execute(message); // Call method to send the message
