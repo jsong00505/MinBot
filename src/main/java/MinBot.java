@@ -34,7 +34,6 @@ public class MinBot extends TelegramLongPollingBot {
       SendMessage message = new SendMessage() // Create a SendMessage object with mandatory fields
               .setChatId(update.getMessage().getChatId())
               .setText(update.getMessage().getText());
-
       try {
         execute(message); // Call method to send the message
       } catch (TelegramApiException e) {
