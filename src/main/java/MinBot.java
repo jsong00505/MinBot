@@ -1,3 +1,5 @@
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -8,6 +10,8 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class MinBot extends TelegramLongPollingBot {
+
+  final Logger logger = LoggerFactory.getLogger( MinBot.class );
 
   private String token;
   private String botName;
@@ -31,6 +35,8 @@ public class MinBot extends TelegramLongPollingBot {
   public void onUpdateReceived(Update update) {
 // We check if the update has a message and the message has text
     if (update.hasMessage() && update.getMessage().hasText()) {
+      String text = update.getMessage().getText();
+      logger.info( text );
       SendMessage message = new SendMessage() // Create a SendMessage object with mandatory fields
               .setChatId(update.getMessage().getChatId())
               .setText(update.getMessage().getText());
