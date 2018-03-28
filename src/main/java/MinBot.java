@@ -36,7 +36,8 @@ public class MinBot extends TelegramLongPollingBot {
 // We check if the update has a message and the message has text
     if (update.hasMessage() && update.getMessage().hasText()) {
       String text = update.getMessage().getText();
-      logger.info( text );
+      String userName = update.getMessage().getFrom().getUserName();
+      logger.info( "[{}]: {}", userName, text );
       SendMessage message = new SendMessage() // Create a SendMessage object with mandatory fields
               .setChatId(update.getMessage().getChatId())
               .setText(update.getMessage().getText());
