@@ -9,8 +9,9 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
 
 public class MinBot extends TelegramLongPollingBot {
 
-  final Logger LOGGER = LoggerFactory.getLogger( MinBot.class );
+  final Logger LOGGER = LoggerFactory.getLogger(MinBot.class);
   private final Token token;
+
   public MinBot() {
     token = TokenConfig.loadProperties();
   }
@@ -20,7 +21,7 @@ public class MinBot extends TelegramLongPollingBot {
     if (update.hasMessage() && update.getMessage().hasText()) {
       String text = update.getMessage().getText();
       String userName = update.getMessage().getFrom().getUserName();
-      LOGGER.info( "[{}]: {}", userName, text );
+      LOGGER.info("[{}]: {}", userName, text);
       SendMessage message = new SendMessage() // Create a SendMessage object with mandatory fields
               .setChatId(update.getMessage().getChatId())
               .setText(update.getMessage().getText());
